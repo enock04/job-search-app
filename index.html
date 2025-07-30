@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Job Search App</title>
+  <link rel="stylesheet" href="styles/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h1>Job Search App</h1>
+
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Enter job title or keyword">
+      <input type="text" id="locationInput" placeholder="Enter location">
+
+      <div class="job-type-filters">
+        <label><input type="checkbox" name="jobType" value="fulltime"> Full-Time</label>
+        <label><input type="checkbox" name="jobType" value="parttime"> Part-Time</label>
+        <label><input type="checkbox" name="jobType" value="contract"> Contract</label>
+        <label><input type="checkbox" name="jobType" value="internship"> Internship</label>
+        <label><input type="checkbox" name="jobType" value="temporary"> Temporary</label>
+      </div>
+
+      <button onclick="searchJobs()">Search</button>
+    </div>
+
+    <div id="results" class="results-container"></div>
+  </div>
+
+  <script src="scripts/scripts.js"></script>
+</body>
+</html>

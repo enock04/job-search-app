@@ -1,0 +1,132 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f1f5f9;
+  color: #333;
+}
+
+.container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+}
+
+h1 {
+  text-align: center;
+  color: #1d4ed8;
+  margin-bottom: 30px;
+}
+
+.search-box {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.search-box input {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  width: 80%;
+}
+
+.job-type-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.job-type-filters label {
+  background-color: #e0e7ff;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.job-type-filters input[type="checkbox"] {
+  margin-right: 6px;
+}
+
+.search-box button {
+  padding: 12px 24px;
+  background-color: #1d4ed8;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search-box button:hover {
+  background-color: #2563eb;
+}
+
+.results-container {
+  display: grid;
+  gap: 20px;
+}
+
+.job-card {
+  padding: 20px;
+  background-color: #f9fafb;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease;
+}
+
+.job-card:hover {
+  transform: translateY(-4px);
+}
+
+.job-card h3 {
+  color: #0f172a;
+  margin-bottom: 8px;
+}
+
+.job-card p {
+  margin: 5px 0;
+  font-size: 15px;
+  color: #475569;
+}
+
+.job-card a {
+  display: inline-block;
+  margin-top: 10px;
+  color: #1d4ed8;
+  text-decoration: none;
+  font-weight: bold;
+  border-bottom: 1px solid transparent;
+  transition: border-bottom 0.2s;
+}
+
+.job-card a:hover {
+  border-bottom: 1px solid #1d4ed8;
+}
+
+.badge {
+  display: inline-block;
+  background-color: #dbeafe;
+  color: #1e40af;
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  margin-top: 8px;
+  font-weight: 600;
+}
