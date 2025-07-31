@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  web-01:
+    image: ntwari30/jobsearch:v1
+    container_name: web-01
+    ports:
+      - "8080:8080"
+    networks:
+      - jobsearch-net
+
+  web-02:
+    image: ntwari30/jobsearch:v1
+    container_name: web-02
+    ports:
+      - "8081:8080"
+    networks:
+      - jobsearch-net
+
+  lb-01:
+    image: haproxy:latest
+    container_name: lb-01
+    ports:
+      - "80:80"
+    volumes:
+      - ./haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg:ro
+    networks:
+      - jobsearch-net
+
+networks:
+  jobsearch-net:
+    driver: bridge
