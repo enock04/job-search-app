@@ -10,47 +10,45 @@ This application is designed to provide meaningful job search functionality by i
 - **Image Name:** ntwari30/jobsearch
 - **Tags:** v1
 
----
 
 ## Build Instructions
 To build the Docker image locally, navigate to the project directory containing the Dockerfile and run:
 
-```bash
+bash
 docker build -t ntwari30/jobsearch:v1 .
-```
 
----
+
 
 ## Run Instructions on Web01 and Web02
 SSH into each web server and execute the following commands to pull and run the Docker image:
 
-```bash
+ bash
 docker pull ntwari30/jobsearch:v1
 docker run -d --name app --restart unless-stopped -p 8081:80 ntwari30/jobsearch:v1
-```
+
 
 This maps the container's internal port 80 to the host's port 8081.
 
----
+
 
 ## Load Balancer Configuration (HAProxy)
 
 To distribute traffic between Web01 and Web02, update the HAProxy configuration (`/etc/haproxy/haproxy.cfg`) with the following backend configuration:
 
-```
+
 backend webapps
     balance roundrobin
     server web01 172.20.0.11:8081 check
     server web02 172.20.0.12:8081 check
-```
+
 
 Reload HAProxy to apply changes:
 
-```bash
+ bash
 docker exec -it lb-01 sh -c 'haproxy -sf $(pidof haproxy) -f /etc/haproxy/haproxy.cfg'
-```
 
----
+ 
+
 
 ## Testing Steps & Evidence
 
@@ -59,28 +57,28 @@ docker exec -it lb-01 sh -c 'haproxy -sf $(pidof haproxy) -f /etc/haproxy/haprox
 - Navigate through all pages and sections, interacting with links, buttons, and inputs to ensure expected behavior.
 - Use `curl` or browser developer tools to confirm round-robin load balancing:
 
-```bash
+bash
 curl http://load-balancer-url
-```
+
 
 Repeat the request multiple times to observe responses from different backend servers.
 
 - Capture screenshots or logs demonstrating balanced traffic distribution.
 
----
+
 
 ## Hardening and Security
 
 - **Handling Secrets:** Do not bake API keys or sensitive information into the Docker image.
 - Use environment variables to pass secrets at runtime:
 
-```bash
+bash
 docker run -d --name app --restart unless-stopped -p 8081:80 -e API_KEY=your_api_key ntwari30/jobsearch:v1
 ```
 
 - For production environments, consider using Docker secrets or external secret management tools to securely manage sensitive data.
 
----
+
 
 ## Application Features
 
@@ -107,6 +105,8 @@ A short demo video (under 2 minutes) is available showcasing:
 - Load balancer configuration and traffic distribution.
 - Key features and user interactions.
 
----
 
-Please feel free to reach out for any questions or further assistance.
+
+
+
+
