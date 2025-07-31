@@ -6,6 +6,7 @@ This application is designed to provide meaningful job search functionality by i
 ---
 APP link
 https://enock04.github.io/job-search-app/
+video app description https://zoom.us/clips/share/t5iRsq36Tq2e-5UxdGyURw
 
 ## Docker Image Details
 - **Docker Hub Repository:** https://hub.docker.com/r/ntwari30/jobsearch
